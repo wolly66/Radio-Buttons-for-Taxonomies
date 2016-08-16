@@ -6,6 +6,25 @@ To use it, just add to your functions.php and add the javascript file to your th
 
 Better still, make make a plug-in out of it, including the javascript file., and being sure to point the wp_register_script to radiotax.js in your plug-in folder.
 
+
+	/**
+	 * jquery_radiotax function.
+	 *
+	 * @access public
+	 * @return void
+	 */
+	function radiotax() {
+
+		wp_enqueue_script( 'radiotax-js',
+		'' . DIRWHERESCRIPTIS .'js/radiotax.js',
+		array( 'jquery' ),
+		time(),
+		true );
+	}
+	
+	add_action( 'admin_enqueue_scripts', 'radiotax' );
+
+
 ###The class properties are: 
 
 - taxonomy: the taxonomy slug
